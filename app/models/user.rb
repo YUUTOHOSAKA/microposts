@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
     has_many :following_relationships, class_name:  "Relationship",
                                      foreign_key: "follower_id",
                                      dependent:   :destroy
- 　 has_many :following_users, through: :following_relationships, source: :followed
- 　 has_many :follower_relationships, class_name:  "Relationship",#followed_idにuserのidが入る
+    has_many :following_users, through: :following_relationships, source: :followed
+    has_many :follower_relationships, class_name:  "Relationship",#followed_idにuserのidが入る
                                     foreign_key: "followed_id",
                                     dependent:   :destroy
   has_many :follower_users, through: :follower_relationships, source: :follower
@@ -31,5 +31,9 @@ class User < ActiveRecord::Base
   def following?(other_user)
     following_users.include?(other_user)
     #他のユーザーがfollowing_usersに含まれているかチェックしています。
+  end
+  
+  def feed_items
+    Micropost.where(user_id: following_user_ids + [self.id])
   end
 end
