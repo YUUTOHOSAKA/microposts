@@ -23,6 +23,12 @@ ActiveRecord::Schema.define(version: 20151123201249) do
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
   add_index "microposts", ["user_id"], name: "index_microposts_on_user_id"
 
+  create_table "profiles", force: :cascade do |t|
+    t.string   "from"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -40,6 +46,8 @@ ActiveRecord::Schema.define(version: 20151123201249) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "profile"
+    t.string   "from"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+ # 内容は必須入力かつ2文字以上30文字以下
+  validates :profile , length: { minimum: 2, maximum: 200 } , presence: true
+  validates :from , length: { minimum: 1, maximum: 10 } , presence: true
     has_secure_password
     has_many :microposts
     has_many :following_relationships, class_name:  "Relationship",

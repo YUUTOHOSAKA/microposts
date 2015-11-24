@@ -1,23 +1,55 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
+    <%= form_for(@user, html: { class: "form-horizontal"} ) do |f| %>
       <%= render 'shared/error_messages', object: f.object %> <!-- ここを追加 -->
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <div class="form-group">
+        <%= f.label :name, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+      </div>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+      <div class="form-group">
+        <%= f.label :email, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= f.text_field :email, class: "form-control" %>
+        </div>
+      </div>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <div class="form-group">
+        <%= f.label :from, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= f.text_field :from, class: "form-control" %>
+        </div>
+      </div>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+      <div class="form-group">
+        <%= f.label :profile, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= f.text_area :profile, class: "form-control" %>
+        </div>
+      </div>
 
-      <%= f.submit "編集", class: "btn btn-large btn-primary" %>
+      <div class="form-group">
+        <%= f.label :password, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= f.password_field :password, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation, "Confirmation", class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= f.password_field :password_confirmation, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.submit "編集", class: "btn btn-large btn-primary" %>
+        </div>
+      </div>
     <% end %>
-    
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 </div>
