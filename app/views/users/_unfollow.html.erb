@@ -3,12 +3,3 @@
              remote: true) do |f| %>
   <%= f.submit "Unfollow", class: "btn" %>
 <% end %>
-<% if current_user != @user %>
-  <div id="follow_form">
-  <% if current_user.following?(@user) %>
-    <%= render 'unfollow' %>
-  <% else %>
-    <%= render 'follow' %>
-  <% end %>
-  </div>
-<% end %>
