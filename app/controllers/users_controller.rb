@@ -22,9 +22,6 @@ class UsersController < ApplicationController
   end
   
   def edit
-    if current_user != @user　#ユーザの値が等しくなければルートにいく
-      redirect_to root_url
-    end
   end
   
   def update
