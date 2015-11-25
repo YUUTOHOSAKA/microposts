@@ -22,11 +22,18 @@ class UsersController < ApplicationController
   end
   
   def edit
+<<<<<<< HEAD
+=======
+    if current_user != @user
+      redirect_to root_url
+    end
+>>>>>>> user-pro
   end
   
   def update
     if current_user != @user
       redirect_to root_url
+<<<<<<< HEAD
       else
       if @user.update(user_params)
         # 保存に成功した場合はトップページへリダイレクト
@@ -35,6 +42,16 @@ class UsersController < ApplicationController
         # 保存に失敗した場合は編集画面へ戻す
         render 'edit'
       end
+=======
+    else
+    if @user.update(user_params)
+      # 保存に成功した場合はトップページへリダイレクト
+      redirect_to root_path , notice: 'メッセージを編集しました'
+    else
+      # 保存に失敗した場合は編集画面へ戻す
+      render 'edit'
+>>>>>>> user-pro
+    end
     end
   end
   
