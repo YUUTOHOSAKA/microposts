@@ -21,6 +21,15 @@ class UsersController < ApplicationController
     end
   end
   
+  def followings
+   # @user = current_user.following_relationships
+   @relationships = current_user.following_users.all
+  end
+  
+  def followers
+  
+  end
+  
   def edit
   end
   

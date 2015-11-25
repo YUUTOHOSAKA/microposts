@@ -1,0 +1,7 @@
+<h2>フォローしてる人一覧</h2>
+
+<% @.each do |message| %>
+  名前:<%= message.name %>
+  内容:<%= message.body %>
+  <br>
+<% end %>
