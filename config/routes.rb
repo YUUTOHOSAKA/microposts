@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   get 'edit',  to: 'users#edit'
 
-  resources :users
+  resources :users do#usersこんとろーらにfollowingsアクションとルートを設定する
+    member do
+      get 'followings'
+      get 'followered'
+    end
+  end
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts
 

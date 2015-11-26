@@ -1,0 +1,15 @@
+<h2>フォローされてる人一覧</h2>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    フォローされてるユーザー一覧
+  </div>
+    
+  <div class="panel-body">
+    <% @relationships.each do |relationship| %>
+      <span class="label label-info"><%= relationship.name %></span>
+      <%= relationship.email %>
+      <br>
+    <% end %>
+  </div>
+</div>

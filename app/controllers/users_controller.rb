@@ -21,6 +21,15 @@ class UsersController < ApplicationController
     end
   end
   
+  def followings
+   # @user = current_user.following_relationships
+   @relationships = current_user.following_users.all
+  end
+  
+  def followered
+   @relationships = current_user.follower_users
+  end
+  
   def edit
     if current_user != @user
       redirect_to root_url
