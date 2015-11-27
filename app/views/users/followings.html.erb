@@ -1,4 +1,4 @@
-<h2>フォロー覧ページ</h2>
+<h1><div Align="left">フォロー一覧ページ</div></h1>
 <div class="panel panel-default">
   <div class="panel-heading">
     フォロー一覧
@@ -6,9 +6,10 @@
 
   <div class="panel-body">
     <% @followings_users.each do |relationship| %>
-      <%= gravatar_for @user %>
-      <span class="label label-info"><%= link_to  relationship.name, user_path %></span>
-      <%= relationship.email %>
+      <div><%= gravatar_for @user %>
+        <span class="label label-info"><%= link_to  relationship.name, user_path %></span>
+        <%= relationship.email %>
+      </div>
       <br>
     <% end %>
   </div>
