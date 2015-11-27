@@ -2,12 +2,12 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    フォローされてるユーザー一覧
+    フォロワー一覧
   </div>
     
   <div class="panel-body">
-    <% @relationships.each do |relationship| %>
-      <span class="label label-info"><%= relationship.name %></span>
+    <% @followered_users.each do |relationship| %>
+      <span class="label label-info"><%= link_to relationship.name, user_path %></span>
       <%= relationship.email %>
       <br>
     <% end %>

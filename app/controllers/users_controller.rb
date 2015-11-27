@@ -23,11 +23,11 @@ class UsersController < ApplicationController
   
   def followings
    # @user = current_user.following_relationships
-   @relationships = current_user.following_users.all
+   @followings_users = current_user.following_users.all
   end
   
   def followered
-   @relationships = current_user.follower_users
+   @followered_users = current_user.follower_users
   end
   
   def edit

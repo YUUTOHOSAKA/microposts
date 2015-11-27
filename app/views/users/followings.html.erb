@@ -1,12 +1,12 @@
-<h2>フォロワー覧ページ</h2>
+<h2>フォロー覧ページ</h2>
 <div class="panel panel-default">
   <div class="panel-heading">
-    フォロワー一覧
+    フォロー一覧
   </div>
 
   <div class="panel-body">
-    <% @relationships.each do |relationship| %>
-      <span class="label label-info"><%= relationship.name %></span>
+    <% @followings_users.each do |relationship| %>
+      <span class="label label-info"><%= link_to  relationship.name, user_path %></span>
       <%= relationship.email %>
       <br>
     <% end %>
