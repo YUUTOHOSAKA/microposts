@@ -6,6 +6,7 @@
   </div>
     
   <div class="panel-body">
+    <%= gravatar_for @user %>
     <% @followered_users.each do |relationship| %>
       <span class="label label-info"><%= link_to relationship.name, user_path %></span>
       <%= relationship.email %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_message, only: [:edit, :update]
+  before_action :set_message, only: [:edit, :update, :followings, :followreed]
   before_action :logged_in_user, only: [:edit, :update]
 
   
@@ -22,11 +22,12 @@ class UsersController < ApplicationController
   end
   
   def followings
-   # @user = current_user.following_relationships
+   @user = User.find(params[:id])
    @followings_users = current_user.following_users.all
   end
   
   def followered
+   @user = User.find(params[:id])
    @followered_users = current_user.follower_users
   end
   
