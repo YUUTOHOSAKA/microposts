@@ -7,7 +7,7 @@
   <div class="panel-body">
     <% @followered_users.each do |relationship| %>
       <div><%= gravatar_for relationship %>
-        <span class="label label-info"><%= link_to relationship.name, user_path(relationship.) %></span>
+        <span class="label label-info"><%= link_to relationship.name, user_path(relationship) %></span>
         <%= relationship.email %>
       </div>
       <br>
